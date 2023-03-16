@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Code snippets</title>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <nav id="nav">
+        <ul class="nav-menu">
+            <li class="logo"><a href="/index.html">Logo</a></li>
+            <li class="item"><a href="/index.html">Home</a></li>
+            <li class="item"><a href="/about.html">About</a></li>
+            
+            <li class="item btn"><button  type="submit" id="loginBtn" class="hero-btn">Login</button></li>
+            <li class="item btn sec"><button  type="submit"  id="regBtn"  class="hero-btn-two">Sign Up</button></li>
+            <li class="toggle"><span class="burger-menu"></span></li>
+        </ul>
+    </nav>
+
+     <!-- Pop up for when Login or Sign up Button is pressed -->
+  
+     <div id="popupLog">  
+        <div class="reg-cont">
+            <a class="x-btn" href="./index.html"> x </a>
+            <form action="/dashboard.html" class="form" id="loginForm" method="GET">
+                <h1>Login</h1>
+                <h3 id="lerrorElement"></h3>
+                <br>
+                <label for="email">Email:</label>
+                <input type="text" id="loginEmail" name="email" placeholder="email">
+                <p>Demo Email: hello@gmail.com</p>
+        
+                <label for="password">Password:</label>
+                <input type="password" id="loginPassword" name="password" placeholder="password">
+                
+                <p>Demo Password: Hello123456</p>
+                <input type="submit" name="submit" class="submit" />
+                 <br>
+                 <p>Don't have an account? <a href="#" style="text-decoration: underline;" id="signupLink">Sign up here</a></p>
+                 
+
+    
+            </form>
+        </div>      
+    </div>
+
+        <div id="popupReg">  
+                    <div class="reg-cont">
+                        <a class="x-btn" href="./index.html"> x </a>
+                        <form action="/thanks.html" class="form" id="regForm" method="GET">
+                            
+                            <h1>Register here</h1>
+                            <br>
+                            <h3 id="errorElement"></h3>
+        
+                            <label for="username">User Name:</label>
+                            <input type="text" id="username" name="username" placeholder="username" required>
+                            <p>Username must be alphanumeric and contain 5 - 12 characters</p>
+                            
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" placeholder="email" required>
+                            <p>Email must be a valid address, e.g. me@mydomain.com</p>
+                    
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="password" placeholder="password" required>
+                            <p>Must contain one capital letter, one number and be atleast 8 characters long.</p>
+                            
+                            <label for="telephone">Phone Number:</label>
+                            <input type="text" id="telephone" name="telephone" placeholder="Example: 07123456789 or +447123456789" required>
+                            <p>Must be a valid UK telephone number</p>
+                            <input  type="submit" name="submit" class="submit" />
+                            <br>
+                            <p>Already have an account? <a href="#" style="text-decoration: underline;" id="loginLink">Login here</a></p>
+                
+                        </form>
+                    </div>      
+        </div>
+    
+
+    <section class="hero-cont">
+        <div class="hero"></div>
+        <div class="hero-text">
+            <h1>WELCOME TO OUR WEBSITE</h1>
+        </div>
+    </section>
+ 
+
+    <script type="text/javascript" src="./index.js"></script>
+    
+</body>
+</html>
