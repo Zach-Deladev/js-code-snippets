@@ -9,7 +9,7 @@ window.onscroll = () => {
     }
 };
 
-// Function to turn burger menu in to a button to open and close the menu on smaller screens
+// Function to turn burger menu into a button to open and close the menu on smaller screens
 const toggle = document.getElementsByClassName("toggle");
 const item = document.querySelectorAll(".item");
 
@@ -25,6 +25,27 @@ for (let i = 0; i < item.length; i++){
          document.querySelector(".toggle").addEventListener("click", toggleMenu)
      };
 
+// Function to close popups if red X is clicked 
+
+
+const closelogPop = document.getElementById("x-btn");
+
+closelogPop.addEventListener("click", e => {
+    if( document.getElementById("popupLog").style.display = "block") {
+        document.getElementById("popupLog").style.display = "none";   
+    }
+} )
+
+
+const closeregPop = document.getElementById("x-btn-reg");
+
+closeregPop.addEventListener("click", e => {
+    if( document.getElementById("popupReg").style.display = "block") {
+        document.getElementById("popupReg").style.display = "none"; 
+    } 
+} )
+
+
 
 //  Function to make login / registration page pop up when the user click the correct button in the navbar
 
@@ -34,17 +55,19 @@ const signup = document.getElementById("regBtn");
 
 login.addEventListener("click", e => {
     if( document.getElementById("popupReg").style.display = "block") {
-        document.getElementById("popupReg").style.display = "none"
+        document.getElementById("popupReg").style.display = "none";
+        document.getElementById("popupLog").style.display = "block";
     }
-    document.getElementById("popupLog").style.display = "block";
+    
 } )
 
 signup.addEventListener("click", e => {
 
     if( document.getElementById("popupLog").style.display = "block") {
-        document.getElementById("popupLog").style.display = "none"
+        document.getElementById("popupLog").style.display = "none";
+        document.getElementById("popupReg").style.display = "block";
     }
-    document.getElementById("popupReg").style.display = "block";
+    
 } )
 
 // Function to make the login / registration form pop up when the user clicks in anchor tag at the bottom of the form 
@@ -54,27 +77,54 @@ const loginLink = document.getElementById("loginLink");
 
 signupLink.addEventListener("click", e => {
     if( document.getElementById("popupLog").style.display = "block") {
-        document.getElementById("popupLog").style.display = "none"
+        document.getElementById("popupLog").style.display = "none";
+        document.getElementById("popupReg").style.display = "block";
     }
-    document.getElementById("popupReg").style.display = "block";
+    
 } )
-
 
 loginLink.addEventListener("click", e => {
     if( document.getElementById("popupReg").style.display = "block") {
-        document.getElementById("popupReg").style.display = "none"
+        document.getElementById("popupReg").style.display = "none";
+        document.getElementById("popupLog").style.display = "block";
     }
-    document.getElementById("popupLog").style.display = "block";
+    
 } )
 
 
-// // Login form validation
+// Login form validation - this would usually be linked to database to match login credentials but for the purpose of this assigment a demo user and password has been made.
+// This form will direct the user to their dashboard if successfully validated.
+const logForm = document.getElementById("loginForm");
+
+logForm.addEventListener("submit", (e)=> {
+    let errs = []
+    const loginEmail = document.getElementById("loginEmail").value;
+
+    const loginPassword = document.getElementById("loginPassword").value;
+
+    if (loginEmail == "hello@gmail.com"){
+        document.forms.loginForm.email.classList.add("valid")
+    } else {
+        errs.push("invalid email")
+    }
+
+    if (loginPassword == "Hello123456"){
+        document.forms.loginForm.password.classList.add("valid")
+    } else {
+        errs.push("invalid password")
+    }
+
+    if (errs.length > 0 ) {
+        e.preventDefault();
+        console.log(errs)
+    }
+})
 
 
-// Registration form validation 
+// Registration form validation - this form checks if the users input matched the regular expressions and requirements need to sign up, then directs them to a thankyou page when validated.
 
-// Grabs all inputs from form.
-const inputs = document.querySelectorAll("input");
+// Grabs all inputs from  registration form.
+const inputs = document.forms.regForm.querySelectorAll("input");
 
 // Object containing Regex patterns for each input field
 
@@ -94,7 +144,8 @@ function validate(field, regex){
 
    console.log(regex.test(field.value));
 
-//    if statement to add a css class to input field if its valid or not
+//    This if statement adds a valid class to the input field if the users input matches the regex requirements
+//    This if statement also adds a invalid class to the input field if the users input does not meet the requirements.
    if(regex.test(field.value)) {
     field.className = "valid"
    } else {
@@ -103,7 +154,7 @@ function validate(field, regex){
  
 }
 
-// Function that adds an event listener to each input field and then runs the validation function on each on to see if it is valid.
+// This function checks each input field on each key (keyup) entry to see if the users input matches the regex requirements
 inputs.forEach((input) => {
 
     input.addEventListener("keyup", (e) => {
@@ -111,8 +162,8 @@ inputs.forEach((input) => {
     });
     });
     
-// Registration form validation function 
-
+// Registration form validation function - this function checks to see if any input fields have been given the class name of invalid and adds an error message to the messages array to prevent the form validating
+//  If all inputs are valid the form validates and takes the user to the thankyou page.
 const regForm = document.getElementById("regForm");
 
 regForm.addEventListener("submit", (e)=> {

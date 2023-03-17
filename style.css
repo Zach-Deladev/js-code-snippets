@@ -43,47 +43,7 @@ body {
     font-size: 12px;
 }
 
-.btns {
-    z-index: 998;
-    background-color: rgba(0, 0, 0, 0);
-    padding: 30px;
-    text-align: center;
-    width: 100%;
-}
 
-
-
-.hero-btn {
-    background-color: rgba(0, 0, 0, 0);
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    padding: 7px 15px;
-    background: rgb(0, 77, 128);
-    border: 2px solid rgb(0, 77, 128);
-    border-radius: 50em;
-}
-
-.hero-btn-two {
-    background: transparent;
-    background-color: rgba(0, 0, 0, 0);
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    padding: 7px 15px;
-    border: 2px solid rgb(0, 77, 128);
-    border-radius: 50em;
-}
-
-.hero-btn:hover {
-    background: rgb(3, 125, 206);
-    border: 2px solid rgb(255, 255, 255);
-}
-
-.hero-btn-two:hover {
-    background: rgb(3, 125, 206);
-    border: 2px solid rgb(255, 255, 255);
-}
 /* Tablet menu  */
 
 @media all and (min-width:468px) {
@@ -148,6 +108,38 @@ nav a:hover {
 
 .btn.sec {
     border-bottom: 1px #444 solid;
+}
+
+.hero-btn {
+    background-color: rgba(0, 0, 0, 0);
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px;
+    background: rgb(0, 77, 128);
+    border: 2px solid rgb(0, 77, 128);
+    border-radius: 50em;
+}
+
+.hero-btn-two {
+    background: transparent;
+    background-color: rgba(0, 0, 0, 0);
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 7px 15px;
+    border: 2px solid rgb(0, 77, 128);
+    border-radius: 50em;
+}
+
+.hero-btn:hover {
+    background: rgb(3, 125, 206);
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.hero-btn-two:hover {
+    background: rgb(3, 125, 206);
+    border: 2px solid rgb(255, 255, 255);
 }
 
 /* Nav mobile menu */
@@ -335,7 +327,7 @@ nav a:hover {
     border-radius: 10px;
 }
 
-.reg-cont .x-btn {
+.reg-cont #x-btn,  #x-btn-reg {
     background-color: red;
     color: #ffffff;
     float: right;
@@ -347,7 +339,7 @@ nav a:hover {
     text-decoration: none;
 }
 
-.reg-cont .x-btn:hover {
+.reg-cont #x-btn:hover, #x-btn-reg:hover {
     background-color: #000000;
     text-decoration: none;
 }
@@ -381,7 +373,7 @@ input{
     text-align: left;
 }
 
-input + p {
+#regForm input + p {
     font-weight: bold;
     font-size: 0.8em;
     color: orange;
@@ -389,10 +381,15 @@ input + p {
     height: 0;
 }
 
-input.invalid + p {
+#regForm input.invalid + p {
     opacity: 1;
     height: auto;
     
+}
+
+#loginForm p {
+    font-size: 0.8rem;
+    padding-bottom: 10px;
 }
 
 form .submit {
