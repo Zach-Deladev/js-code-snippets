@@ -291,6 +291,10 @@ nav a:hover {
     }
     
     .item.active:hover {
+        background-color: rgb(48, 48, 48);
+    }
+    
+    .item.btn.active:hover {
         background-color: rgba(48, 48, 48, 0);
     }
     
