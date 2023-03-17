@@ -67,8 +67,8 @@ Upon successful registration, the user is taken to a thank you page that display
 
 ### Bugs and fixes
 
-- The validate function for the regsitration form was targeting all inputs within the index.html page preventing me being able to seperate the login form inputs to run different validation on. I fixed this by targeting the registration form inputs through "const inputs = document.forms.regForm.querySelectorAll("input");" instead of "const inputs = document.querySelectorAll("input");"
+- The original validation function for the registration form was targeting all input elements within the index.html page, which prevented the separation of the login form inputs for different validation rules. This issue was resolved by targeting the registration form inputs specifically with const inputs = document.forms.regForm.querySelectorAll("input"); instead of using const inputs = document.querySelectorAll("input");.
 
-- The was an issue where if the user had opened a pop up I didn't have a way for them to click off of the pop up. I fixed this by adding a button that turns the display property to none of the form user is currently on.
+- There was a problem where users could not close a popup once it was opened. To address this issue, a button was added to change the display property of the active form to 'none', allowing users to close the form they are currently viewing.
 
-- There was also an issue where the user could not switch between the forms once they had clicked one. I fixed this by adding a link at the bottom of each form that closes the current form while opening the other.
+- Additionally, users were unable to switch between forms once they had clicked on one. This problem was resolved by adding a link at the bottom of each form, which closes the current form and opens the other when clicked.
