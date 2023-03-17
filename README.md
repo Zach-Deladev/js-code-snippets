@@ -64,3 +64,11 @@ Once the user successfully logs in, they are directed to the dashboard page, whe
 Upon successful registration, the user is taken to a thank you page that displays a message thanking them for their registration. The page also provides a link that directs users back to the home page, prompting them to log in with their newly-created account. Currently serving as a placeholder, the thank you page has the potential to be expanded with future back-end integration to incorporate additional features such as email verification. This enhancement would improve security and ensure that users have provided valid email addresses during the registration process.
 
 ![alt text](/media/thankyou-wireframe.png)
+
+### Bugs and fixes
+
+- The validate function for the regsitration form was targeting all inputs within the index.html page preventing me being able to seperate the login form inputs to run different validation on. I fixed this by targeting the registration form inputs through "const inputs = document.forms.regForm.querySelectorAll("input");" instead of "const inputs = document.querySelectorAll("input");"
+
+- The was an issue where if the user had opened a pop up I didn't have a way for them to click off of the pop up. I fixed this by adding a button that turns the display property to none of the form user is currently on.
+
+- There was also an issue where the user could not switch between the forms once they had clicked one. I fixed this by adding a link at the bottom of each form that closes the current form while opening the other.
